@@ -1,4 +1,3 @@
-from fractions import Fraction
 from typing import Any, Optional
 
 SUB = str.maketrans('0123456789', '₀₁₂₃₄₅₆₇₈₉')
@@ -119,4 +118,5 @@ def transpose(matrix: list[list[float]]) -> list[list[float]]:
 
     return result_matrix
 
-solve_user_input_matrices()
+if __name__ == '__main__':
+    solve_user_input_matrices()
