@@ -76,10 +76,7 @@ def solve_single_matrix(matrice: list[list[float]], operation: str) -> list[list
 def multiply_matrices(matrix1: list[list[float]], matrix2: list[list[float]]) -> list[list[float]]:
     columns = len(matrix1[0])
     rows = len(matrix2)
-    result_matrix = [[1.0]*columns]
-
-    print(columns, rows)
-    print_matrix(result_matrix)
+    result_matrix = [[1.0]*columns for _ in range(rows)]
 
     for i in range(columns):
         pass
