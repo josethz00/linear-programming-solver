@@ -26,7 +26,7 @@ should be equal to the number of rows of the second matrix.
         return
 
     matrice = get_matrix()
-    return solve_matrices(matrice, None, operation)
+    print_matrix(solve_matrices(matrice, None, operation))
 
 def get_matrix() -> list[list[Any]]:
     rows = int(input('How many rows? '))
@@ -76,7 +76,7 @@ def solve_single_matrix(matrice: list[list[float]], operation: str) -> list[list
 def multiply_matrices(matrix1: list[list[float]], matrix2: list[list[float]]) -> list[list[float]]:
     columns = len(matrix1[0])
     rows = len(matrix2)
-    result_matrix = [[1.0]*columns for _ in range(rows)]
+    result_matrix: list[list[float]] = [[0]*columns for _ in range(rows)]
 
     for i in range(columns):
         for j in range(rows):
@@ -98,15 +98,25 @@ def subtract_matrices(matrix1: list[list[float]], matrix2: list[list[float]]):
             matrix1[row][column] -= matrix2[row][column]
     return matrix1
 
-def determinant(matrice: list[list[float]]) -> list[list[float]]:
+def determinant(matrix: list[list[float]]) -> list[list[float]]:
     return []
 
-def inverse(matrice: list[list[float]]) -> list[list[float]]:
+def inverse(matrix: list[list[float]]) -> list[list[float]]:
     return []
 
-def transpose(matrice: list[list[float]]) -> list[list[float]]:
-    for i in range(len(matrice)):
-        print(i)
+def transpose(matrix: list[list[float]]) -> list[list[float]]:
+    original_rows = len(matrix)
+    original_columns = len(matrix[0])
 
+    rows = original_columns
+    columns = original_rows
+
+    result_matrix: list[list[float]] = [[0] * columns for _ in range(rows)]
+
+    for row in range(rows):
+        for column in range(columns):
+            result_matrix[row][column] = matrix[column][row]
+
+    return result_matrix
 
 solve_user_input_matrices()
