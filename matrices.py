@@ -82,8 +82,6 @@ def multiply_matrices(matrix1: list[list[float]], matrix2: list[list[float]]) ->
 
     result_matrix: list[list[float]] = [[0]*columns for _ in range(rows)]
 
-    print_matrix(result_matrix)
-
     for i in range(rows):
         for j in range(columns):
             # multiply the row of matrix1 by the column of matrix2
