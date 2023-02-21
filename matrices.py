@@ -17,19 +17,23 @@ should be equal to the number of rows of the second matrix.
 
     if operation in ('multiplication', 'addition', 'subtraction'):
         print('-----------------Enter the first matrix -----------------\n')
-        matrix1 = get_matrix()
+        rows = int(input('How many rows? '))
+        columns = int(input('How many columns? '))
+        matrix1 = get_matrix(rows, columns)
         print('-----------------Enter the second matrix-----------------\n')
-        matrix2 = get_matrix()
+        rows = int(input('How many rows? '))
+        columns = int(input('How many columns? '))
+        matrix2 = get_matrix(rows, columns)
         print('-----------------The result is-----------------\n')
         print_matrix(solve_matrices(matrix1, matrix2, operation))
         return
 
-    matrice = get_matrix()
-    print_matrix(solve_matrices(matrice, None, operation))
-
-def get_matrix() -> list[list[Any]]:
     rows = int(input('How many rows? '))
     columns = int(input('How many columns? '))
+    matrice = get_matrix(rows, columns)
+    print_matrix(solve_matrices(matrice, None, operation))
+
+def get_matrix(rows: int, columns: int) -> list[list[Any]]:
     matrix = []
 
     for row in range(rows):
