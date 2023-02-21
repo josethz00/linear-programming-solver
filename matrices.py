@@ -84,12 +84,11 @@ def multiply_matrices(matrix1: list[list[float]], matrix2: list[list[float]]) ->
 
     print_matrix(result_matrix)
 
-    for i in range(columns):
-        for j in range(rows):
-            result_matrix[i][j] = sum(
-                [matrix1[i][k] * matrix2[k][i] for k in range(columns)]
-            )
-
+    for i in range(rows):
+        for j in range(columns):
+            # multiply the row of matrix1 by the column of matrix2
+            for k in range(len(matrix1[0])):
+                result_matrix[i][j] += matrix1[i][k] * matrix2[k][j]
     return result_matrix
 
 def add_matrices(matrix1: list[list[float]], matrix2: list[list[float]]):
