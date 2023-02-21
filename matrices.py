@@ -77,14 +77,17 @@ def solve_single_matrix(matrice: list[list[float]], operation: str) -> list[list
     return []
 
 def multiply_matrices(matrix1: list[list[float]], matrix2: list[list[float]]) -> list[list[float]]:
-    columns = len(matrix1[0])
-    rows = len(matrix2)
+    rows = len(matrix1)
+    columns = len(matrix2[0])
+
     result_matrix: list[list[float]] = [[0]*columns for _ in range(rows)]
+
+    print_matrix(result_matrix)
 
     for i in range(columns):
         for j in range(rows):
             result_matrix[i][j] = sum(
-                [matrix1[i][k] * matrix2[k][j] for k in range(columns)]
+                [matrix1[i][k] * matrix2[k][i] for k in range(columns)]
             )
 
     return result_matrix

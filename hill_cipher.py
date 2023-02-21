@@ -49,10 +49,24 @@ def hill_cipher_encrypt(message: str, key: list[list[float]]) -> str:
             current_block = current_block + ',' + current_block + ',' + current_block
             three_chunk_blocks.append(current_block)
             current_block = ''
-            
-    print(three_chunk_blocks)
+
+    encrypted_message = ''
+
+    for block in three_chunk_blocks:
+        block = block.split(',')
+        block = [float(x) for x in block]
+
+        encrypted_block = multiply_matrices([block], key)
+
+        for number in encrypted_block[0]:
+            number_mod = int(number % 26)
+            alphabet_equiv = chr(number_mod + 96)
+            encrypted_message = encrypted_message + alphabet_equiv
     
+    print(encrypted_message)
+
     return 'aaa'
+
 
 def hill_cipher_decrypt(message: str, key: list[list[float]]) -> str:
     pass
