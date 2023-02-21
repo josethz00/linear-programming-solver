@@ -63,9 +63,7 @@ def hill_cipher_encrypt(message: str, key: list[list[float]]) -> str:
             alphabet_equiv = chr(number_mod + 96)
             encrypted_message = encrypted_message + alphabet_equiv
     
-    print(encrypted_message)
-
-    return 'aaa'
+    return encrypted_message
 
 
 def hill_cipher_decrypt(message: str, key: list[list[float]]) -> str:
