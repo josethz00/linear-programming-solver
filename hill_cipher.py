@@ -46,7 +46,7 @@ def hill_cipher_encrypt(message: str, key: list[list[float]]) -> str:
             three_chunk_accumulator = 0
             current_block = ''
         elif len(message) - index < 3 and three_chunk_accumulator <= 1:
-            current_block = current_block * 3
+            current_block = current_block + ',' + current_block + ',' + current_block
             three_chunk_blocks.append(current_block)
             current_block = ''
             
