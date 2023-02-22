@@ -60,7 +60,7 @@ def hill_cipher_encrypt(message: str, key: list[list[float]]) -> str:
 
         for number in encrypted_block[0]:
             number_mod = int(number % 26)
-            alphabet_equiv = chr(number_mod + 96)
+            alphabet_equiv = list(substitutions.keys())[list(substitutions.values()).index(number_mod+1)]
             encrypted_message = encrypted_message + alphabet_equiv
     
     return encrypted_message
